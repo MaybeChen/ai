@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ai-sdk/openai-compatible": "3.0.0-beta.9",
-    "@ai-sdk/react": "4.0.0-beta.33",
-    "ai": "7.0.0-beta.33",
+    "@ai-sdk/openai-compatible": "workspace:*",
+    "@ai-sdk/react": "workspace:*",
+    "ai": "workspace:*",
     "next": "^15.5.9",
     "react": "^18",
     "react-dom": "^18",

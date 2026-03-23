@@ -5,9 +5,12 @@
 ## 运行方式
 
 ```bash
+cd examples/alarm-card-demo
 pnpm install
-pnpm --filter @example/alarm-card-demo dev
+pnpm dev
 ```
+
+`pnpm install` 会通过 workspace 依赖直接链接仓库中的 `ai`、`@ai-sdk/react` 和 `@ai-sdk/openai-compatible`。
 
 启动后打开：<http://localhost:3000>
 
