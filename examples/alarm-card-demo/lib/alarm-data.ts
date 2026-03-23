@@ -1,11 +1,8 @@
-export const alertWorkOrder = {
-  告警Id: 'ALM-100116',
-  告警名称: 'HTTP进程故障',
-  定位信息: 'POD名称:goomtest-pod-fbc4b6bf7-7g68q;进程类型:TCP;进程pid:4981;',
-  附加信息: '进程故障原因:系统内部故障;',
-} as const;
+export const defaultAlarmInput = `【告警工单】
+{"告警Id": "ALM-100116", "告警名称": "HTTP进程故障", "定位信息": "POD名称:goomtest-pod-fbc4b6bf7-7g68q;进程类型:TCP;进程pid:4981;", "附加信息": "进程故障原因:系统内部故障;"}
 
-export const alertDocument = `# ALM-100116 HTTP进程故障
+【告警资料】
+# ALM-100116 HTTP进程故障
 ## 告警解释
 告警触发机制
 当出现HTTP进程或TCP进程故障时，系统产生该告警。
@@ -27,6 +24,3 @@ export const alertDocument = `# ALM-100116 HTTP进程故障
 3. 等待240s后，查看告警是否恢复。
 是 => 进程恢复正常，处理完毕。
 否 => 请收集告警信息、日志信息和配置信息，并联系华为技术支持处理。`;
-
-export const defaultPrompt =
-  '请根据告警工单和告警资料，生成适合一线值守人员快速阅读的告警处置卡片，要求结构化、可执行、中文输出。';
