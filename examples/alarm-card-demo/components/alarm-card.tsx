@@ -30,13 +30,17 @@ function BulletList({
   items,
   placeholder,
 }: {
-  items?: string[];
+  items?: Array<string | undefined>;
   placeholder: string;
 }) {
+  const normalizedItems = (items ?? []).filter(
+    (item): item is string => typeof item === 'string' && item.length > 0,
+  );
+
   return (
     <ul className="space-y-3 text-sm leading-6 text-slate-200">
-      {items?.length ? (
-        items.map((item: string, index: number) => (
+      {normalizedItems.length ? (
+        normalizedItems.map((item, index) => (
           <li key={`${item}-${index}`} className="flex gap-3">
             <span className="mt-2 h-2 w-2 rounded-full bg-sky-400" />
             <span>{item}</span>
@@ -50,6 +54,10 @@ function BulletList({
 }
 
 export function AlarmCard({ card }: { card?: PartialAlertCard }) {
+  const locations = (card?.location ?? []).filter(
+    (item): item is string => typeof item === 'string' && item.length > 0,
+  );
+
   return (
     <div className="space-y-4">
       <div className="overflow-hidden rounded-[28px] border border-slate-700 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-6 shadow-glow">
@@ -88,8 +96,8 @@ export function AlarmCard({ card }: { card?: PartialAlertCard }) {
         <div className="space-y-4">
           <Section title="定位信息">
             <div className="flex flex-wrap gap-2">
-              {card?.location?.length ? (
-                card.location.map((item: string, index: number) => (
+              {locations.length ? (
+                locations.map((item, index) => (
                   <Chip key={`${item}-${index}`}>{item}</Chip>
                 ))
               ) : (
