@@ -1,6 +1,6 @@
 # Alarm Card Demo
 
-基于 Vercel AI SDK 的 `streamText + Output.object` 结构化流式输出示例，用户只需要粘贴一段完整告警文本，页面就会实时生成告警处置卡片。
+基于 Vercel AI SDK 的 `streamText + Output.object` 结构化流式输出示例，用户只需要粘贴一段完整告警文本，页面就会以生成式 UI 的方式一点点长出告警卡片。
 
 ## 运行方式
 
@@ -24,4 +24,8 @@ pnpm dev
 # ...
 ```
 
-不需要再额外输入“生成指令”。提交后卡片会先出现骨架，再随着 partial object 流式补全标题、总结、动作建议和流程图。
+## 生成式 UI 约束
+
+- 只自定义 **流程图** 组件。
+- 其他区域全部由模型规划为原子 block（headline / status-strip / paragraph / bullet-list / key-value-list / metric / callout）。
+- 页面不会预先展示完整大卡片骨架，而是随着 partial object 返回逐步长出一个个区块。

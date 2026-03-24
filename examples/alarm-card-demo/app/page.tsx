@@ -33,11 +33,11 @@ export default function Page() {
               Generative Alert UI Demo
             </p>
             <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white">
-              原始告警输入 → 流式告警卡片
+              原子组件流式生长的告警卡片
             </h1>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300">
-              只粘贴完整告警信息，提交后 Assistant 卡片会先以空骨架出现，再随着
-              partial object 持续补全文字、动作建议和流程图节点。
+              只定义流程图组件，其他区域全部由大模型规划为原子
+              block。页面不会先出现完整大卡片框架，而是随着返回一点点长出标题、状态条、说明、列表和流程图。
             </p>
           </div>
           <div className="rounded-3xl border border-slate-800 bg-slate-900/80 px-4 py-3 text-sm text-slate-300">
@@ -61,11 +61,11 @@ export default function Page() {
           </div>
 
           <div className="flex justify-start">
-            <div className="w-full max-w-5xl rounded-[28px] border border-slate-800 bg-slate-900/60 p-3 lg:p-4">
-              <div className="mb-3 flex items-center justify-between gap-3 text-xs uppercase tracking-[0.28em] text-slate-500">
-                <span>Assistant Card</span>
+            <div className="w-full max-w-5xl rounded-[28px] border border-slate-800 bg-slate-900/40 p-4 lg:p-5">
+              <div className="mb-4 flex items-center justify-between gap-3 text-xs uppercase tracking-[0.28em] text-slate-500">
+                <span>Assistant Stream</span>
                 <span className="rounded-full border border-slate-700 px-3 py-1 text-[11px] text-slate-400">
-                  {isLoading ? 'Streaming partial object…' : 'Ready'}
+                  {isLoading ? 'Blocks streaming…' : 'Ready'}
                 </span>
               </div>
               <AlarmCard card={object} />
@@ -98,7 +98,8 @@ export default function Page() {
             />
             <div className="mt-3 flex flex-wrap items-center justify-between gap-3 border-t border-slate-800 pt-3">
               <div className="text-xs text-slate-500">
-                输入只有原始告警文本；提交后卡片骨架先出现，字段内容会流式刷新。
+                返回会先长出少量
+                block，再持续补全后续原子组件；只有流程图使用自定义组件。
               </div>
               <div className="flex flex-wrap gap-3">
                 <button
