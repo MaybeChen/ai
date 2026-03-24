@@ -120,7 +120,7 @@ export default function Page() {
           />
           <div className="mt-3 flex flex-wrap items-center justify-between gap-3 border-t border-slate-800 pt-3">
             <div className="text-xs text-slate-500">
-              会先展示一个可见的“思考过程”摘要，再继续长出标题、状态条、列表和流程图。
+              不展示思考过程，直接输出结论型 block，并继续长出状态条、列表和流程图。
             </div>
             <div className="flex flex-wrap gap-3">
               <button

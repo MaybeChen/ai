@@ -31,7 +31,6 @@ const blockSchema = z.object({
       'metric',
       'flowchart',
       'callout',
-      'thinking-steps',
     ])
     .describe('原子组件类型。'),
   title: z.string().optional().describe('区块标题。'),
