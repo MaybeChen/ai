@@ -12,20 +12,10 @@ pnpm dev
 
 启动后打开：<http://localhost:3000>
 
-## 输入方式
+## 界面行为
 
-直接在页面输入框中粘贴原始告警内容，格式类似：
-
-```text
-【告警工单】
-{...}
-
-【告警资料】
-# ...
-```
-
-## 生成式 UI 约束
-
-- 只自定义 **流程图** 组件。
-- 其他区域全部由模型规划为原子 block（headline / status-strip / paragraph / bullet-list / key-value-list / metric / callout）。
-- 页面不会预先展示完整大卡片骨架，而是随着 partial object 返回逐步长出一个个区块。
+- 初始界面是类似 `json-render` chat example 的 landing 状态：中间是引导文案，底部是输入框。
+- 当你输入并提交告警信息后，才会出现对话气泡。
+- Assistant 区域不会先出现完整卡片框架，而是随着 partial object 逐步长出 block。
+- 会先展示一个对用户可见的简短“思考过程/分析过程摘要”，再继续长出标题、状态条、列表和流程图。
+- 只有 **流程图** 使用自定义组件；其他区域都由模型规划为原子 block。

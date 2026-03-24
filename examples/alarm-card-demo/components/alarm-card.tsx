@@ -71,6 +71,31 @@ function renderBlock(block: Block, index: number) {
         </BlockShell>
       );
 
+    case 'thinking-steps':
+      return (
+        <BlockShell key={block.id ?? index} tone={tone === 'neutral' ? 'info' : tone}>
+          <div className="space-y-4">
+            <div className="text-xs uppercase tracking-[0.28em] text-slate-300/90">
+              {block.title ?? '思考过程'}
+            </div>
+            <ol className="space-y-3 text-sm leading-7 text-current/90">
+              {items.length ? (
+                items.map((item, itemIndex) => (
+                  <li key={`${item}-${itemIndex}`} className="flex gap-3">
+                    <span className="mt-0.5 inline-flex h-6 min-w-6 items-center justify-center rounded-full border border-white/15 text-xs">
+                      {itemIndex + 1}
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))
+              ) : (
+                <li className="text-slate-300/70">正在整理可展示的思考步骤...</li>
+              )}
+            </ol>
+          </div>
+        </BlockShell>
+      );
+
     case 'status-strip':
       return (
         <BlockShell key={block.id ?? index} tone={tone}>
