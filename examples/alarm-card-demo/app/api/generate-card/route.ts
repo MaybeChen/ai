@@ -22,7 +22,6 @@ export async function POST(req: Request) {
     model: modelFactory.chatModel('qwen3.5'),
     output: Output.object({ schema: alertCardSchema }),
     temperature: 0.1,
-    maxOutputTokens: 900,
     prompt: [
       '你是一名 NOC 值守专家兼生成式 UI 规划器，需要把用户粘贴的原始告警内容整理成一组按顺序展示的原子组件。',
       '不要进行深度思考，不要输出思考过程或分析步骤；直接给出简洁、可执行的结果。',
